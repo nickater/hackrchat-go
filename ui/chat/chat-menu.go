@@ -1,4 +1,4 @@
-package ui
+package chat_ui
 
 import (
 	"errors"
@@ -6,7 +6,7 @@ import (
 	"github.com/manifoldco/promptui"
 )
 
-func MainMenu(choices []string) (string, error) {
+func ChatMenu(choices []string) (string, error) {
 	prompt := promptui.Select{
 		Label: "Select",
 		Items: choices,
@@ -19,12 +19,12 @@ func MainMenu(choices []string) (string, error) {
 	}
 
 	switch result {
-	case choices[0]:
-		return choices[0], nil
-	case choices[1]:
-		return choices[1], nil
-	case choices[2]:
-		return choices[2], nil
+	case "New Chat":
+		return "new", nil
+	case "Existing Chat":
+		return "existing", nil
+	case "Exit":
+		return "exit", nil
 	default:
 		return "", errors.New("invalid selection")
 	}
