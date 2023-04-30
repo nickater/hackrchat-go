@@ -19,10 +19,13 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v3
       with:
-        go-version: 1.20
+        go-version: 1.20.3
 
     - name: Build Linux
-      run: GOOS=linux GOARCH=amd64 go build 
+      run: go build 
+      env: 
+        GOOS: linux
+        GOARCH: amd64
       
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.2
@@ -33,7 +36,10 @@ jobs:
         path: hackrchat-cli
         
     - name: Build Mac
-      run: GOOS=darwin GOARCH=arm64 go build 
+      run: go build 
+      env: 
+        GOOS: darwin
+        GOARCH: arm64
       
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.2
