@@ -22,3 +22,12 @@ func SaveToConfigFile(data string) {
 func SaveUsernameToConfigFile(username string) {
 	SaveToConfigFile("USERNAME=" + username)
 }
+
+func SaveRememberMeToConfigFile(shouldRemember bool) {
+
+	if shouldRemember {
+		SaveToConfigFile("REMEMBER_ME=true")
+	} else {
+		SaveToConfigFile("REMEMBER_ME=false")
+	}
+}

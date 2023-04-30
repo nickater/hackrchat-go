@@ -4,32 +4,23 @@ import (
 	"fmt"
 
 	"github.com/manifoldco/promptui"
-	"github.com/nickater/hackrchat-cli/model"
+	"github.com/nickater/hackrchat-cli/src/model"
 )
 
-func AuthMenu() model.Credential {
+func AuthMenu(choices []string) int {
 	prompt := promptui.Select{
 		Label: "Select",
-		Items: []string{"Login", "Register", "Exit"},
+		Items: choices,
 	}
 
-	index, result, err := prompt.Run()
+	index, _, err := prompt.Run()
 
 	fmt.Println(index)
 	if err != nil {
 		panic(err)
 	}
 
-	switch result {
-	case "Login":
-		return LoginMenu()
-	case "Register":
-		return RegisterMenu()
-	case "Exit":
-		panic("Exit")
-	default:
-		panic("Exit")
-	}
+	return index
 }
 
 func RegisterMenu() model.Credential {

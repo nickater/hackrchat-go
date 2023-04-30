@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/nickater/hackrchat-cli/controller"
-	"github.com/nickater/hackrchat-cli/util"
+	"github.com/nickater/hackrchat-cli/src/controller"
+	"github.com/nickater/hackrchat-cli/src/util"
 )
 
 func main() {

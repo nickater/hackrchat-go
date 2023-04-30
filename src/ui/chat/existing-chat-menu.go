@@ -7,7 +7,7 @@ import (
 func ExistingChatMenu(chat_names []string) (string, error) {
 
 	prompt := promptui.Select{
-		Label: "Enter Recipient's Username",
+		Label: "Pick from existing chats",
 		Items: chat_names,
 	}
 

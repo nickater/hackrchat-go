@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"github.com/nickater/hackrchat-cli/ui"
-	"github.com/nickater/hackrchat-cli/util"
+	"github.com/nickater/hackrchat-cli/src/ui"
+	"github.com/nickater/hackrchat-cli/src/util"
 )
 
 func MainController() error {
@@ -15,7 +15,7 @@ func MainController() error {
 		main_menu_selection, err := ui.MainMenu(choices)
 
 		if err != nil {
-			panic(err)
+			return err
 		}
 
 		switch main_menu_selection {
