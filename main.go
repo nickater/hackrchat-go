@@ -1,15 +1,17 @@
 package main
 
 import (
-	"fmt"
+	"github.com/nickater/hackrchat-cli/controller"
+	"github.com/nickater/hackrchat-cli/util"
 )
 
-func init() {
-	// Init
-	fmt.Println("Init")
-}
-
 func main() {
-	// Hello world
-	fmt.Println("Hello world")
+	util.ClearConsole()
+	authResult := controller.AuthController()
+
+	if authResult != nil {
+		panic(authResult)
+	}
+
+	controller.MainController()
 }
