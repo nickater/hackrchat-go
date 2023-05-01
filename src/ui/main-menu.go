@@ -1,31 +1,22 @@
 package ui
 
 import (
-	"errors"
-
 	"github.com/manifoldco/promptui"
+	"github.com/nickater/hackrchat-cli/src/util"
 )
 
-func MainMenu(choices []string) (string, error) {
+func MainMenu(choices []string) int {
 	prompt := promptui.Select{
 		Label: "Select",
 		Items: choices,
 	}
 
-	_, result, err := prompt.Run()
+	index, _, err := prompt.Run()
 
 	if err != nil {
 		panic(err)
 	}
 
-	switch result {
-	case choices[0]:
-		return choices[0], nil
-	case choices[1]:
-		return choices[1], nil
-	case choices[2]:
-		return choices[2], nil
-	default:
-		return "", errors.New("invalid selection")
-	}
+	util.ClearConsole()
+	return index
 }

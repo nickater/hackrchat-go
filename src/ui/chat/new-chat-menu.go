@@ -2,6 +2,7 @@ package chat_ui
 
 import (
 	"github.com/manifoldco/promptui"
+	"github.com/nickater/hackrchat-cli/src/util"
 )
 
 func NewChatMenu() (string, error) {
@@ -15,6 +16,7 @@ func NewChatMenu() (string, error) {
 		panic(err)
 	}
 
-	return result, nil
+	util.ClearConsole()
 
+	return result, nil
 }

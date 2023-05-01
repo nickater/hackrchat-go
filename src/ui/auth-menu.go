@@ -5,6 +5,7 @@ import (
 
 	"github.com/manifoldco/promptui"
 	"github.com/nickater/hackrchat-cli/src/model"
+	"github.com/nickater/hackrchat-cli/src/util"
 )
 
 func AuthMenu(choices []string) int {
@@ -20,6 +21,7 @@ func AuthMenu(choices []string) int {
 		panic(err)
 	}
 
+	util.ClearConsole()
 	return index
 }
 
@@ -42,6 +44,8 @@ func RegisterMenu() model.Credential {
 	if err != nil {
 		panic(err)
 	}
+
+	util.ClearConsole()
 
 	return model.Credential{Username: username, Password: password}
 }
@@ -66,5 +70,6 @@ func LoginMenu() model.Credential {
 		panic(err)
 	}
 
+	util.ClearConsole()
 	return model.Credential{Username: username, Password: password}
 }

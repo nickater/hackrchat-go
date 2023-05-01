@@ -9,7 +9,6 @@ import (
 )
 
 func LoginUser(credentials model.Credential) (string, error) {
-	fmt.Println(credentials.Username)
 	result, err := http.Get("https://catfact.ninja/fact")
 
 	if err != nil {
@@ -29,7 +28,6 @@ func LoginUser(credentials model.Credential) (string, error) {
 }
 
 func RegisterUser(credentials model.Credential) (string, error) {
-	fmt.Println(credentials.Username)
 	result, err := http.Get("https://catfact.ninja/fact")
 
 	if err != nil {

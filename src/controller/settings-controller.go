@@ -29,16 +29,23 @@ func SettingsController() error {
 				return err
 			}
 		case 1:
+			err := updateUsernameController()
 
+			if err != nil {
+				return err
+			}
 		case 2:
-			fmt.Println(update_password)
+			err := updatePasswordController()
+
+			if err != nil {
+				return err
+			}
 		case 3:
 			controller_running = false
 		default:
 			controller_running = false
 		}
 	}
-	util.ClearConsole()
 	return nil
 }
 

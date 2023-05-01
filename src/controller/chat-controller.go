@@ -4,7 +4,6 @@ import (
 	"fmt"
 
 	chat_ui "github.com/nickater/hackrchat-cli/src/ui/chat"
-	"github.com/nickater/hackrchat-cli/src/util"
 )
 
 func ChatController() error {
@@ -43,7 +42,6 @@ func ChatController() error {
 		}
 
 	}
-	util.ClearConsole()
 	return nil
 }
 
@@ -57,21 +55,20 @@ func newChatController() error {
 
 		fmt.Println(new_chat_result)
 	}
-	util.ClearConsole()
 	return nil
 }
 
 func existingChatController() error {
 	controller_running := true
 	for controller_running {
-		chat_names := []string{"the boyz", "stacy", "gus20k"}
+		chat_names := append([]string{"the boyz", "stacy", "gus20k"}, "Back")
 
 		existing_chat_result, err := chat_ui.ExistingChatMenu(chat_names)
 		if err != nil {
 			return err
 		}
+
 		fmt.Println(existing_chat_result)
 	}
-	util.ClearConsole()
 	return nil
 }

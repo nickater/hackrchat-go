@@ -2,7 +2,6 @@ package controller
 
 import (
 	"github.com/nickater/hackrchat-cli/src/ui"
-	"github.com/nickater/hackrchat-cli/src/util"
 )
 
 func MainController() error {
@@ -12,21 +11,18 @@ func MainController() error {
 		settings := "Settings"
 		exit := "Exit"
 		choices := []string{chat, settings, exit}
-		main_menu_selection, err := ui.MainMenu(choices)
+		main_menu_selection_index := ui.MainMenu(choices)
 
-		if err != nil {
-			return err
-		}
-
-		switch main_menu_selection {
-		case chat:
+		switch main_menu_selection_index {
+		case 0:
 			ChatController()
-		case settings:
+		case 1:
 			SettingsController()
-		case exit:
+		case 2:
+			controller_running = false
+		default:
 			controller_running = false
 		}
 	}
-	util.ClearConsole()
 	return nil
 }
